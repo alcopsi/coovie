@@ -7,7 +7,7 @@ public class Starter {
 	 */
 	public static void main(String[] args) throws Exception 
 	{
-		String p = "movies";
+		String p = "/home/alex/movies";
 		Scanner scan = new Scanner(p);
 		scan.scanPath();
 		scan.showResult();
