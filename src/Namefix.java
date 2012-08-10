@@ -38,7 +38,12 @@ public class Namefix {
 		if (yearMatch.find() == true)
 		{
 			String year = yearMatch.group();
-			//System.out.println(year);
+			
+			int tmp = Integer.parseInt(year);
+			if (tmp == 720)
+				return "";
+			else if ( tmp == 1080)
+				return "";
 			return year;
 		}
 		return "";
