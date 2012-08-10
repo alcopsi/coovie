@@ -41,7 +41,6 @@ public class Movie {
 				moviePoster = checktitle.moviePoster;
 				saveImage(moviepath);
 			} catch (Exception e) {
-				saveNotFoundTitles();
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				saveNotFoundTitles();

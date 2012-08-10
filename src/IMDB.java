@@ -28,7 +28,7 @@ public class IMDB {
 	
 	IMDB(String moviename,String year) throws Exception {
 		String myURL;
-		myURL = setURL(moviename+year);
+		myURL = setURL(moviename+"("+year+")");
 		myURL = getMovie(myURL);
 		showMovie(myURL);
 		// Thread.sleep(10000);
