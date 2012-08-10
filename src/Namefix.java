@@ -22,18 +22,20 @@ public class Namefix {
 	
 	private void removeReleaseinfo() throws Exception{
 
-		int pos = movietitle.indexOf( getYear() );
-
-		fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
-		finalCheck(fixedmovietitle);
+		if(getYear() == "")
+			finalCheck(movietitle);
+		else
+		{
+			int pos = movietitle.indexOf( getYear() );
+			fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
+			finalCheck(fixedmovietitle);
+		}
 		
-		//m.setObject(m);
-		//Movielist.add
 	}
 	
 	public String getYear(){
 		
-		Pattern yearPattern = Pattern.compile("\\d+");
+		Pattern yearPattern = Pattern.compile("\\d{4}?");
 		Matcher yearMatch = yearPattern.matcher(movietitle);
 		if (yearMatch.find() == true)
 		{
@@ -44,6 +46,7 @@ public class Namefix {
 				return "";
 			else if ( tmp == 1080)
 				return "";
+			System.out.println("Pattern year: "+year);
 			return year;
 		}
 		return "";
