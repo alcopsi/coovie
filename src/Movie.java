@@ -15,14 +15,16 @@ public class Movie {
 	private String movietitle = null;
 	private String moviepath = null;
 	private String imdburl = null;
+	private String year = null;
 	private static Image moviePoster = null;
 	private float rating = 0;
 	//Movie m;
 
-	Movie(String movietitle, String moviepath, boolean mov_exists) throws Exception{
+	Movie(String movietitle, String moviepath,String year, boolean mov_exists) throws Exception{
 		
 		this.movietitle = movietitle;
 		this.moviepath = moviepath;
+		this.year = year;
 		//System.out.println(mov_exists);
 		if(mov_exists) {
 			MyDB getdata = new MyDB(movietitle);
@@ -34,7 +36,7 @@ public class Movie {
 		}
 		else{
 			try {
-				IMDB checktitle = new IMDB(movietitle);
+				IMDB checktitle = new IMDB(movietitle,year);
 				rating = checktitle.movrating;
 				moviePoster = checktitle.moviePoster;
 				saveImage(moviepath);

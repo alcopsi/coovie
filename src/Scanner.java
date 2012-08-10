@@ -36,7 +36,7 @@ public class Scanner {
 					moviepath = path +"/"+ moviename;
 					Namefix n = new Namefix(moviename);
 					
-					Movie m = new Movie(n.getFixedMovieTitle(), moviepath, checkAvailable(n.getFixedMovieTitle()));
+					Movie m = new Movie(n.getFixedMovieTitle(), moviepath,n.getYear(), checkAvailable(n.getFixedMovieTitle()));
 					//System.out.println(m.getMovietitle() + n.getFixedMovieTitle());
 					liste.addMovie(m);
 				}

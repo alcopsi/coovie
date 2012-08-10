@@ -24,7 +24,15 @@ public class IMDB {
 		showMovie(myURL);
 		// Thread.sleep(10000);
 	}
-
+	
+	
+	IMDB(String moviename,String year) throws Exception {
+		String myURL;
+		myURL = setURL(moviename+year);
+		myURL = getMovie(myURL);
+		showMovie(myURL);
+		// Thread.sleep(10000);
+	}
 	private static String setURL(String mystring) {
 		String foo;
 		mystring = mystring.replaceAll(" ", "+");
