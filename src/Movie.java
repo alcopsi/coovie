@@ -2,7 +2,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -31,13 +33,28 @@ public class Movie {
 			this.moviePoster = getdata.getPoster();
 		}
 		else{
-			IMDB checktitle = new IMDB(movietitle);
-			rating = checktitle.movrating;
-			moviePoster = checktitle.moviePoster;
-			saveImage(moviepath);
+			try {
+				IMDB checktitle = new IMDB(movietitle);
+				rating = checktitle.movrating;
+				moviePoster = checktitle.moviePoster;
+				saveImage(moviepath);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	
+	private void saveNotFoundTitles() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("Not Found.txt"));
+			bw.write(movietitle + "\n");
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	public String getMovietitle(){
 		return movietitle;
