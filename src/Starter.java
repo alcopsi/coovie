@@ -1,4 +1,3 @@
-
 public class Starter {
 
 	/**
@@ -7,10 +6,10 @@ public class Starter {
 	 */
 	public static void main(String[] args) throws Exception 
 	{
-		String p = "/home/alex/movies";
+		InputPath i = new InputPath();
+		String p = i.getPath();
 		Scanner scan = new Scanner(p);
 		scan.scanPath();
 		scan.showResult();
 	}
-
 }
