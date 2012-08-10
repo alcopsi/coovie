@@ -41,6 +41,7 @@ public class Movie {
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				saveNotFoundTitles();
 			}
 		}
 	}
@@ -48,7 +49,7 @@ public class Movie {
 	private void saveNotFoundTitles() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("Not Found.txt"));
-			bw.write(movietitle + "\n");
+			bw.append(movietitle + "\n");
 			bw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
