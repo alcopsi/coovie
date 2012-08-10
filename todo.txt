@@ -1,0 +1,8 @@
+1. Optimierung der Suche
+	1.1. Richtigen Film in der IMDB-Search-Overview
+	1.2. Exceptions behandeln (try/catch)
+	1.3. Threads bei Internetabfrage
+	
+2. Jsoup.jar integrieren 
+
+3. Nicht gefundene Film durch google oder apis abfragen 
