@@ -64,10 +64,8 @@ public class IMDB {
 		while ((inputLine = in.readLine()) != null) {
 			if ((i = inputLine.indexOf("Users rated this ")) > 0) // Checking if IMDB-Search skipped the search overview
 			{
-				System.out.println("Schleife");
 				for (int j = i; j < inputLine.length(); j++) 
 				{
-					System.out.println("Schleife2");
 					if ((k = inputLine.indexOf("/title/tt")) > 0) {
 						movie = "http://www.imdb.com"
 								+ inputLine.subSequence(k, k + 17);
