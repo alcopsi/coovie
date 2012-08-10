@@ -44,6 +44,7 @@ public class Movie {
 				saveNotFoundTitles();
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				saveNotFoundTitles();
 			}
 		}
 	}

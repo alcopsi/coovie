@@ -62,7 +62,18 @@ public class IMDB {
 		int i = 0, k = 0;
 
 		while ((inputLine = in.readLine()) != null) {
-			if ((i = inputLine.indexOf("<b>Popular Titles</b>")) > 0)
+			if ((i = inputLine.indexOf("Users rated this ")) > 0) // Checking if we skipped the IMDB search overview
+			{
+				for (int j = i; j < inputLine.length(); j++) 
+				{
+					if ((k = inputLine.indexOf("/title/tt")) > 0) {
+						movie = "http://www.imdb.com"
+								+ inputLine.subSequence(k, k + 17);
+					}
+				}
+				break;
+			}
+			else if ((i = inputLine.indexOf("<b>Popular Titles</b>")) > 0)
 				for (int j = i; j < inputLine.length(); j++) {
 					if ((k = inputLine.indexOf("/title/tt")) > 0) {
 						movie = "http://www.imdb.com"
