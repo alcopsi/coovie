@@ -46,7 +46,6 @@ public class Namefix {
 				return "";
 			else if ( tmp == 1080)
 				return "";
-			System.out.println("Pattern year: "+year);
 			return year;
 		}
 		return "";
