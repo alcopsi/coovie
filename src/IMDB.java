@@ -30,6 +30,7 @@ public class IMDB {
 		String myURL;
 		myURL = setURL(moviename+"("+year+")");
 		myURL = getMovie(myURL);
+		System.out.println(myURL);
 		showMovie(myURL);
 		// Thread.sleep(10000);
 	}
@@ -51,7 +52,6 @@ public class IMDB {
 	}
 
 	public static String getMovie(String myurl) throws Exception {
-		System.out.println("Acquiring Movie's site..."+myurl);
 		URL moviedb = new URL(myurl);
 		URLConnection yc = moviedb.openConnection();
 		yc.addRequestProperty("User-Agent",
@@ -60,6 +60,14 @@ public class IMDB {
 				yc.getInputStream()));
 		String inputLine, movie = "error";
 		int i = 0, k = 0;
+		
+		String currentURL =  yc.getURL().toString();
+		int pos;
+		if(currentURL.contains("title")) {
+			in.close();
+			return currentURL;
+		}
+		else {
 
 		while ((inputLine = in.readLine()) != null) {
 			if ((i = inputLine.indexOf("Users rated this ")) > 0) // Checking if IMDB-Search skipped the search overview
@@ -90,7 +98,7 @@ public class IMDB {
 					break;
 				}
 		}
-
+		}
 		in.close();
 		return movie;
 	}
