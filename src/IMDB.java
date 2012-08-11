@@ -22,7 +22,6 @@ public class IMDB {
 		myURL = setURL(moviename);
 		myURL = getMovie(myURL);
 		showMovie(myURL);
-		// Thread.sleep(10000);
 	}
 	
 	
@@ -30,9 +29,7 @@ public class IMDB {
 		String myURL;
 		myURL = setURL(moviename+"("+year+")");
 		myURL = getMovie(myURL);
-		System.out.println(myURL);
 		showMovie(myURL);
-		// Thread.sleep(10000);
 	}
 	private static String setURL(String mystring) {
 		String foo;
@@ -60,7 +57,8 @@ public class IMDB {
 				yc.getInputStream()));
 		String inputLine, movie = "error";
 		int i = 0, k = 0;
-		
+
+		System.out.println("Acquiring Movie's site..."+myurl);
 		String currentURL =  yc.getURL().toString();
 		int pos;
 		if(currentURL.contains("title")) {
