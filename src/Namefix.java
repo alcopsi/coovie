@@ -21,11 +21,17 @@ public class Namefix {
 	}
 	
 	private void removeReleaseinfo() throws Exception{
+		
+		System.out.println("Movie1: "+movietitle);
 
 		if(getYear() == "")
+		{
+			fixedmovietitle = movietitle;
 			finalCheck(movietitle);
+			System.out.println("Went 1");}
 		else
 		{
+			System.out.println("Went 2");
 			int pos = movietitle.indexOf( getYear() );
 			fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
 			finalCheck(fixedmovietitle);
@@ -46,7 +52,6 @@ public class Namefix {
 				return "";
 			else if ( tmp == 1080)
 				return "";
-			System.out.println("Pattern year: "+year);
 			return year;
 		}
 		return "";
