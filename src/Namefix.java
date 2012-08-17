@@ -26,13 +26,18 @@ public class Namefix {
 		if(getYear() == "")
 		{
 			fixedmovietitle = movietitle;
-			finalCheck(movietitle);
+			germanCheck(movietitle);
+			tausendachtzigCheck(movietitle);
+			siebenhunderzwanzigCheck(movietitle);
+			
 		}
 		else
 		{
 			int pos = movietitle.indexOf( getYear() );
 			fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
-			finalCheck(fixedmovietitle);
+			germanCheck(fixedmovietitle);
+			tausendachtzigCheck(movietitle);
+			siebenhunderzwanzigCheck(movietitle);
 		}
 		
 	}
@@ -56,13 +61,37 @@ public class Namefix {
 	
 	}
 	
-	private void finalCheck(String fixedmovietitle){
+	private void germanCheck(String fixedmovietitle){
 		String x = fixedmovietitle;
 		Pattern germanPattern = Pattern.compile("German");
 		Matcher germanMatch = germanPattern.matcher(x);
 		if (germanMatch.find() == true)
 		{
 			String german = germanMatch.group();
+			int pos = movietitle.indexOf(german);
+			this.fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
+		}
+	}
+	
+	private void tausendachtzigCheck(String fixedmovietitle){
+		String x = fixedmovietitle;
+		Pattern taPattern = Pattern.compile("1080p");
+		Matcher taMatch = taPattern.matcher(x);
+		if (taMatch.find() == true)
+		{
+			String german = taMatch.group();
+			int pos = movietitle.indexOf(german);
+			this.fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
+		}
+	}
+	
+	private void siebenhunderzwanzigCheck(String fixedmovietitle){
+		String x = fixedmovietitle;
+		Pattern szPattern = Pattern.compile("720p");
+		Matcher szMatch = szPattern.matcher(x);
+		if (szMatch.find() == true)
+		{
+			String german = szMatch.group();
 			int pos = movietitle.indexOf(german);
 			this.fixedmovietitle = (pos >= 0 ? movietitle.substring( 0, pos ) : movietitle);
 		}

@@ -42,12 +42,23 @@ public class Movie {
 				saveImage(moviepath);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 				saveNotFoundTitles();
+				
+				Notfound n = new Notfound(movietitle,year);
+				rating = n.getMovrating();
+				moviePoster = n.getMoviePoster();
+				saveImage(moviepath);
+				Thread.sleep(25000);
 			}
 		}
 	}
 	
+	private void sleep(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void saveNotFoundTitles() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter("Not Found.txt",true));
@@ -95,6 +106,8 @@ public class Movie {
 	public String getMoviePath() {
 		return moviepath;
 	}
+	
+
 	
 	/* sinn?
 	public void setObject(Movie n){
